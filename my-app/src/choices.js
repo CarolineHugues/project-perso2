@@ -4,34 +4,46 @@ function Choice(props) {
   return (
     <div>
       <label>{props.label}</label>
-      <input type="radio" value={props.value}/>
+      <input type="radio" name={props.name} value={props.value} onClick={props.onClick}/>
     </div>
   );
 }
 
 export class Choices extends React.Component {
+  constructor(props) {    
+    super(props);    
+    this.state = {      
+      choices: Array(2).fill(null), 
+    };  
+  }
+
+  handleClick(question, value) {
+    const choices = this.state.choices.slice();    
+    choices[question] = value;
+    this.setState({choices: choices})
+  }
+
+  renderChoice(label, value, question) {
+    return (
+      <Choice 
+        label={label}
+        value={value}
+        name={question}
+        onClick={() => this.handleClick(question, value)}
+      />
+    )
+  }
+
   render() {
     return (
       <section>
         <div>
-          <Choice 
-            label="Pays froids"
-            value="1"
-          />
-          <Choice 
-            label="Pays chauds"
-            value="2"
-          />
+          {this.renderChoice("Pays froids", 1, 0)}
+          {this.renderChoice("Pays chauds", 2, 0)}
         </div>
         <div>
-        <Choice 
-          label="Ville"
-          value="3"
-        />
-        <Choice
-          label="Nature"
-          value="4"
-        />
+          {this.renderChoice("Ville", 3, 1)}
+          {this.renderChoice("Nature", 4, 1)}
         </div>
       </section>
     );
