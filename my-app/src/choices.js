@@ -10,19 +10,6 @@ function Choice(props) {
 }
 
 export class Choices extends React.Component {
-  /*constructor(props) {    
-    super(props);    
-    this.state = {      
-      choices: Array(2).fill(null), 
-    };  
-  }*/
-
-  /*handleClick(question, value) {
-    const choices = this.state.choices.slice();    
-    choices[question] = value;
-    this.setState({choices: choices})
-  }*/
-
   renderChoice(label, value, question) {
     return (
       <Choice 
