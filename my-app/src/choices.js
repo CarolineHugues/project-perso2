@@ -10,18 +10,18 @@ function Choice(props) {
 }
 
 export class Choices extends React.Component {
-  constructor(props) {    
+  /*constructor(props) {    
     super(props);    
     this.state = {      
       choices: Array(2).fill(null), 
     };  
-  }
+  }*/
 
-  handleClick(question, value) {
+  /*handleClick(question, value) {
     const choices = this.state.choices.slice();    
     choices[question] = value;
     this.setState({choices: choices})
-  }
+  }*/
 
   renderChoice(label, value, question) {
     return (
@@ -29,7 +29,7 @@ export class Choices extends React.Component {
         label={label}
         value={value}
         name={question}
-        onClick={() => this.handleClick(question, value)}
+        onClick={() => this.props.onClick(question, value)}
       />
     )
   }
