@@ -24,11 +24,11 @@ export class Choices extends React.Component {
   render() {
     return (
       <section>
-        <div>
+        <div className="choices">
           {this.renderChoice("Pays froids", 1, 0)}
           {this.renderChoice("Pays chauds", 2, 0)}
         </div>
-        <div>
+        <div className="choices">
           {this.renderChoice("Ville", 3, 1)}
           {this.renderChoice("Nature", 4, 1)}
         </div>
